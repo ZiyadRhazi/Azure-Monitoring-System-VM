@@ -79,7 +79,5 @@ sudo systemctl enable grafana-server
 sudo systemctl start grafana-server
 
 echo ">>> Installation Complete!"
-echo "--------------------------------------------------"
 echo "Prometheus is running on port 9090"
 echo "Grafana is running on port 3000 (Login: admin/admin)"
-echo "--------------------------------------------------"
