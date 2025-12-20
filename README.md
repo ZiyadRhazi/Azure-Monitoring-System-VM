@@ -1,33 +1,36 @@
-# Azure VM Monitoring System
-**Implementation of a Cloud-Based Monitoring Stack using Prometheus, Node Exporter, and Grafana.**
+# Azure VM Monitoring System (Prometheus, Node Exporter, Grafana)
+
+**Author:** Ziyad Rhazi
+**Date:** December 6, 2025
 
 ## 📌 Project Overview
-This project deploys a complete observability stack on a **Debian 12 Azure Virtual Machine**. [cite_start]It visualizes real-time metrics (CPU, Memory, Disk, Network) to ensure cloud services remain responsive and efficient [cite: 5-7].
+This project implements a fully automated monitoring stack on a **Microsoft Azure Linux VM (Debian 12)**. It uses a shell script to deploy **Prometheus**, **Node Exporter**, and **Grafana** in minutes.
 
 ### Architecture
-The system follows a pull-based architecture:
-* [cite_start]**Node Exporter (Port 9100):** Exposes host-level system metrics[cite: 34].
-* [cite_start]**Prometheus (Port 9090):** Scrapes metrics and stores them in a time-series database[cite: 35].
-* [cite_start]**Grafana (Port 3000):** Visualizes the data through interactive dashboards[cite: 36].
-
-
----
-
-## ⚙️ Prerequisites
-* **Azure VM:** Debian 12 (Bookworm).
-* [cite_start]**Network Security:** Ensure the following Inbound Ports are open in your Azure NSG [cite: 40-43]:
-    * `22` (SSH)
-    * `9090` (Prometheus)
-    * `3000` (Grafana)
+* **Node Exporter (Port 9100):** Metrics collector.
+* **Prometheus (Port 9090):** Time-series database.
+* **Grafana (Port 3000):** Visualization dashboard.
 
 ---
 
 ## 🚀 Installation Guide
 
-### 1. Setup & Repository
-First, update your system and clone this repository to your VM.
+### 1. Prerequisites
+Ensure your Azure VM Network Security Group (NSG) allows inbound traffic on:
+* `22` (SSH)
+* `9090` (Prometheus)
+* `3000` (Grafana)
+
+### 2. Deploy the Stack
+Login to your VM and run the following commands:
+
 ```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y wget curl tar git
+# 1. Clone the repository
 git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
 cd YOUR_REPO_NAME
+
+# 2. Make the script executable
+chmod +x install.sh
+
+# 3. Run the installer
+sudo ./install.sh
